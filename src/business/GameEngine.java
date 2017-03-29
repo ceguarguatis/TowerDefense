@@ -8,7 +8,7 @@ public class GameEngine {
 
 //    private static Player player1;
 //    private static Player player2;
-//    private static Tablero board;
+//    private static Tablero boar d;
     public static void main(String[] args) {
 
         UIConsole.menuInicio();
