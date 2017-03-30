@@ -73,12 +73,19 @@ public class GameEngine {
                                     }
                                 }
                             }
-                        }
-                        System.out.println(board.getOleada().get(i).getCasilla().getRow());
+                        }try {
+                
+                Thread.sleep(500);
+                System.out.println(board.getOleada().get(i).getCasilla().getRow());
                         System.out.println(board.getOleada().get(i).getCasilla().getCol());
                         System.out.println(board);
                         System.out.println(board.getOleada().get(i).toString(0));
                         numbCasilla++;
+                
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+                        
                         if (board.getOleada().get(i).getVida() <= 0) {
                             break;
                         }
