@@ -1,8 +1,8 @@
-
 //JULIO JAVIER MUÑOZ
 //juanquis
 //listo papuya lo actualizo
 //listo niggis
+//prueba
 package business;
 
 import data.*;
@@ -54,26 +54,22 @@ public class GameEngine {
                 MovementHandler.ponerTorre(rowTorre, colTorre, board);
                 System.out.println(board);
             } else if (opcion == 2) {
-                int numbCasilla = 0;
-                while (numbCasilla < board.getCamino().size()) {
-                    MovementHandler.moverOleada(board, 0, numbCasilla);
-                    board.updateSquare(new Casilla(board.getOleada().get(0).getCasilla().getRow(), board.getOleada().get(0).getCasilla().getCol(), 1, 1));
-                    for (int i = 0; i < board.getCamino().size(); i++) {
-                        if (board.getCamino().get(i) != board.getOleada().get(0).getCasilla()) {
-                            board.updateSquare(new Casilla(board.getCamino().get(i).getRow(), board.getCamino().get(i).getCol(), 1, 3));
-                        }
+                for (int i = 0; i < board.getOleada().size(); i++) {
+                    int numbCasilla = 0;
+                    while (numbCasilla < board.getCamino().size()) {
+                        MovementHandler.ponerCasilla(board, i, numbCasilla);
+                        board.updateSquare(new Casilla(board.getOleada().get(i).getCasilla().getRow(), board.getOleada().get(i).getCasilla().getCol(), 1, 1));
+                        MovementHandler.updateTablero(board,i);
+                        System.out.println(board);
+                        numbCasilla++;
                     }
-                    System.out.println(board);
-                    numbCasilla++;
                 }
+
             }
+
             UIConsole.menuJuego();
             opcion = UIConsole.leerOpcion();
         }
-    }
-
-    public static void moverEnemigo(Tablero tablero) {
-
     }
 
 //    private static void startGame() {

@@ -42,6 +42,12 @@ public class Tablero {
         oleada = new ArrayList<Enemigo>();
         oleada.add(new Enemigo(1,1,1));
         oleada.add(new Enemigo(1,1,1));
+        oleada.add(new Enemigo(1,1,1));
+        oleada.add(new Enemigo(1,1,1));
+        oleada.add(new Enemigo(1,1,1));
+        oleada.add(new Enemigo(1,1,1));
+        oleada.add(new Enemigo(1,1,1));
+                      
         
         camino = new ArrayList<Casilla>();
         camino.add(new Casilla(0,0,1,3));
@@ -148,6 +154,8 @@ public class Tablero {
     public void updateSquare(Casilla square) {
         board[square.getRow()][square.getCol()] = square;
     }
+    
+    
 
     @Override
     public String toString() {
