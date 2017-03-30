@@ -53,8 +53,6 @@ public class GameEngine {
                 board.getTorres().add(new Torre(1, 1, 1, new Casilla(rowTorre, colTorre, 1, 3)));
                 MovementHandler.ponerTorre(rowTorre, colTorre, board);
                 System.out.println(board);
-                UIConsole.menuJuego();
-                opcion = UIConsole.leerOpcion();
             } else if (opcion == 2) {
                 int numbCasilla = 0;
                 while (numbCasilla < board.getCamino().size()) {

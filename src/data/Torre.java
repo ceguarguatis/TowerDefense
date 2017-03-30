@@ -1,14 +1,22 @@
-
 package data;
+
 import java.util.*;
 
 public class Torre {
-    
+
     private int alcance;
     private int velocidad;
     private int precio;
     private Casilla casilla;
     private List<Casilla> rango;
+
+    public List<Casilla> getRango() {
+        return rango;
+    }
+
+    public void setRango(List<Casilla> rango) {
+        this.rango = rango;
+    }
 
     public Casilla getCasilla() {
         return casilla;
@@ -28,8 +36,12 @@ public class Torre {
         this.velocidad = velocidad;
         this.precio = precio;
         this.casilla = casilla;
+        for (int i = 0; i < (4 * alcance) * (alcance + 1); i++) {
+            Casilla casiia = new Casilla(0,0,0,0);
+            this.rango.add(casiia);
+        }
     }
-    
+
     public Torre(int alcance, int velocidad, int precio) {
         this.alcance = alcance;
         this.velocidad = velocidad;
@@ -60,5 +72,4 @@ public class Torre {
         this.precio = precio;
     }
 
-    
 }
