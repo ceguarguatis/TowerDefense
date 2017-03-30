@@ -40,13 +40,13 @@ public class Tablero {
         board = new Casilla[10][10];
         torres = new ArrayList<Torre>();
         oleada = new ArrayList<Enemigo>();
-        oleada.add(new Enemigo(1,1,1));
-        oleada.add(new Enemigo(1,1,1));
-        oleada.add(new Enemigo(1,1,1));
-        oleada.add(new Enemigo(1,1,1));
-        oleada.add(new Enemigo(1,1,1));
-        oleada.add(new Enemigo(1,1,1));
-        oleada.add(new Enemigo(1,1,1));
+        oleada.add(new Enemigo(1,3,1,new Casilla(0,0,1)));
+        oleada.add(new Enemigo(1,10,1,new Casilla(0,0,1)));
+        oleada.add(new Enemigo(1,1,1,new Casilla(0,0,1)));
+        oleada.add(new Enemigo(1,8,1,new Casilla(0,0,1)));
+        oleada.add(new Enemigo(1,1,1,new Casilla(0,0,1)));
+//        oleada.add(new Enemigo(1,1,1));
+//        oleada.add(new Enemigo(1,1,1));
                       
         
         camino = new ArrayList<Casilla>();
@@ -154,6 +154,30 @@ public class Tablero {
     public void updateSquare(Casilla square) {
         board[square.getRow()][square.getCol()] = square;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Tablero other = (Tablero) obj;
+        if (!Objects.equals(this.camino, other.camino)) {
+            return false;
+        }
+        return true;
+    }
     
     
 
@@ -162,9 +186,11 @@ public class Tablero {
         Enemigo enemigo = new Enemigo(1, 1, 1);
         Torre torre = new Torre(1, 1, 1);
         String printBoard = "\n";
+        System.out.println("\t      0  1  2  3  4  5  6  7  8  9");
+        System.out.print("\t      ^  ^  ^  ^  ^  ^  ^  ^  ^  ^");
         for (int row = 0; row < board.length; row++) {
-            printBoard = printBoard.concat("\t ");
-            for (int col = 0; col < board.length; col++) {
+            printBoard = printBoard.concat("\t "+row+" < ");
+            for (int col = 0; col < board.length; col++) {               
                 if (board[row][col].getDeterminante() == 0) {
                     printBoard = printBoard.concat(board[row][col].toString());
                 } else if (board[row][col].getDeterminante() == 1) {

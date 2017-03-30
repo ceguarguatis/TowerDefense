@@ -53,18 +53,43 @@ public class GameEngine {
                 board.getTorres().add(new Torre(1, 1, 1, new Casilla(rowTorre, colTorre, 1, 3)));
                 MovementHandler.ponerTorre(rowTorre, colTorre, board);
                 System.out.println(board);
+
+                System.out.println(new Torre(1, 1, 1, new Casilla(rowTorre, colTorre, 1, 3)).toString(1));
             } else if (opcion == 2) {
-                for (int i = 0; i < board.getOleada().size(); i++) {
+                int numEnemies = board.getOleada().size();
+                for (int i = 0; i < numEnemies; i++) {
                     int numbCasilla = 0;
                     while (numbCasilla < board.getCamino().size()) {
                         MovementHandler.ponerCasilla(board, i, numbCasilla);
                         board.updateSquare(new Casilla(board.getOleada().get(i).getCasilla().getRow(), board.getOleada().get(i).getCasilla().getCol(), 1, 1));
-                        MovementHandler.updateTablero(board,i);
-                        System.out.println(board);
-                        numbCasilla++;
-                    }
-                }
+                        MovementHandler.updateTablero(board, i);
+                        for (int numEne = 0; numEne < board.getOleada().size(); numEne++) {
+                            for (int numTorr = 0; numTorr < board.getTorres().size(); numTorr++) {
+                                for (int numRan = 0; numRan < board.getTorres().get(numTorr).getRango().size(); numRan++) {
 
+                                    if (board.getOleada().get(numEne).getCasilla().getRow() == board.getTorres().get(numTorr).getRango().get(numRan).getRow()
+                                            && board.getOleada().get(numEne).getCasilla().getCol() == board.getTorres().get(numTorr).getRango().get(numRan).getCol()) {
+                                        board.getOleada().get(numEne).setVida(board.getOleada().get(numEne).getVida() - board.getTorres().get(numTorr).getDaño());
+                                    }
+                                }
+                            }
+                        }
+                        System.out.println(board.getOleada().get(i).getCasilla().getRow());
+                        System.out.println(board.getOleada().get(i).getCasilla().getCol());
+                        System.out.println(board);
+                        System.out.println(board.getOleada().get(i).toString(0));
+                        numbCasilla++;
+                        if (board.getOleada().get(i).getVida() <= 0) {
+                            break;
+                        }
+                    }
+
+                }
+                System.out.println(board.getOleada().get(0).toString(0));
+                System.out.println(board.getOleada().get(1).toString(0));
+                System.out.println(board.getOleada().get(2).toString(0));
+                System.out.println(board.getOleada().get(3).toString(0));
+                System.out.println(board.getOleada().get(4).toString(0));
             }
 
             UIConsole.menuJuego();

@@ -5,7 +5,7 @@ import java.util.*;
 public class Torre {
 
     private int alcance;
-    private int velocidad;
+    private int daño;
     private int precio;
     private Casilla casilla;
     private List<Casilla> rango;
@@ -30,131 +30,162 @@ public class Torre {
     public String toString() {
         return "^";
     }
-
-    public Torre(int alcance, int velocidad, int precio, Casilla casilla) {
-        this.alcance = alcance;
-        this.velocidad = velocidad;
-        this.precio = precio;
-        this.casilla = casilla;
-        rango =new ArrayList<Casilla>();
-        for (int i = 0; i < (4 * alcance) * (alcance + 1); i++) {
-            if(alcance==1){
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()+1,1));
-            }if(alcance==2){
-            this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()-2,1));
-            }
-            if(alcance==3){
-                this.rango.add(new Casilla(casilla.getRow()-3,casilla.getCol()+3,1));
-                this.rango.add(new Casilla(casilla.getRow()-3,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()-3,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()-3,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()-3,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-3,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()+3,casilla.getCol()-3,1));
-                this.rango.add(new Casilla(casilla.getRow()+3,casilla.getCol()+3,1));
-                this.rango.add(new Casilla(casilla.getRow()+3,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()+3,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()+3,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()+3,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()+3,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()+3,casilla.getCol()-3,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()+3,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()+3,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()+3,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()+3,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()+3,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()-3,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()-3,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()-3,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()-3,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()-3,1));
-                 this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()+2,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()+1,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol(),1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()-1,1));
-                this.rango.add(new Casilla(casilla.getRow()-2,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()-2,1));
-                this.rango.add(new Casilla(casilla.getRow()+2,casilla.getCol()-2,1));
-            }
-            
-            
+    
+    public String toString(int a) {
+        String palabra="";
+        for(int i=0;i<rango.size();i++){
+            palabra = palabra.concat(rango.get(i).toString('f'));
         }
+       return palabra;
     }
 
-    public Torre(int alcance, int velocidad, int precio) {
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Torre other = (Torre) obj;
+        if (!Objects.equals(this.casilla, other.casilla)) {
+            return false;
+        }
+        return true;
+    }
+
+    public Torre(int alcance, int daño, int precio, Casilla casilla) {
         this.alcance = alcance;
-        this.velocidad = velocidad;
+        this.daño = daño;
+        this.precio = precio;
+        this.casilla = casilla;
+        rango = new ArrayList<Casilla>();
+            if (alcance == 1) {
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() + 1, 1));
+            }
+            if (alcance == 2) {
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() - 2, 1));
+            }
+            if (alcance == 3) {
+                this.rango.add(new Casilla(casilla.getRow() - 3, casilla.getCol() + 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 3, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 3, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 3, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() - 3, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 3, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 3, casilla.getCol() - 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 3, casilla.getCol() + 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 3, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 3, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 3, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() + 3, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 3, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 3, casilla.getCol() - 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() + 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() + 3, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() + 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() + 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() + 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() - 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() - 3, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() - 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() - 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() - 3, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() + 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() + 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol(), 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() - 1, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 2, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() - 1, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow(), casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 1, casilla.getCol() - 2, 1));
+                this.rango.add(new Casilla(casilla.getRow() + 2, casilla.getCol() - 2, 1));
+            }
+
+        
+    }
+
+    public Torre(int alcance, int daño, int precio) {
+        this.alcance = alcance;
+        this.daño = daño;
         this.precio = precio;
     }
 
@@ -166,12 +197,12 @@ public class Torre {
         this.alcance = alcance;
     }
 
-    public int getVelocidad() {
-        return velocidad;
+    public int getDaño() {
+        return daño;
     }
 
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
+    public void setDaño(int daño) {
+        this.daño = daño;
     }
 
     public int getPrecio() {

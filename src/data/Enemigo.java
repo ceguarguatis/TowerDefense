@@ -15,6 +15,10 @@ public class Enemigo {
     public String toString() {
         return ":";
     }
+    
+    public String toString(int a) {
+        return ":"+vida;
+    }
 
     public Casilla getCasilla() {
         return casilla;
@@ -30,6 +34,30 @@ public class Enemigo {
         this.valor = valor;
         this.casilla = casilla;
 
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Enemigo other = (Enemigo) obj;
+        if (!Objects.equals(this.casilla, other.casilla)) {
+            return false;
+        }
+        return true;
     }
     
     public Enemigo(int velocidad, int vida, int valor) {
