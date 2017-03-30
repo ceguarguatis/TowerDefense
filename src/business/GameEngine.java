@@ -80,7 +80,13 @@ public class GameEngine {
                         System.out.println(board.getOleada().get(i).getCasilla().getCol());
                         System.out.println(board);
                         System.out.println(board.getOleada().get(i).toString(0));
+                        if(board.getOleada().get(i).getVelocidad()==1){
                         numbCasilla++;
+                        }else if(board.getOleada().get(i).getVelocidad()==2){
+                            numbCasilla+=2;
+                        }else if (board.getOleada().get(i).getVelocidad()==3){
+                            numbCasilla+=3;
+                        }
                 
             } catch (InterruptedException ex) {
                 ex.printStackTrace();

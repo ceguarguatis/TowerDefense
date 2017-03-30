@@ -40,11 +40,11 @@ public class Tablero {
         board = new Casilla[10][10];
         torres = new ArrayList<Torre>();
         oleada = new ArrayList<Enemigo>();
-        oleada.add(new Enemigo(1,3,1,new Casilla(0,0,1)));
+        oleada.add(new Enemigo(2,3,1,new Casilla(0,0,1)));
         oleada.add(new Enemigo(1,10,1,new Casilla(0,0,1)));
-        oleada.add(new Enemigo(1,1,1,new Casilla(0,0,1)));
+        oleada.add(new Enemigo(3,1,1,new Casilla(0,0,1)));
         oleada.add(new Enemigo(1,8,1,new Casilla(0,0,1)));
-        oleada.add(new Enemigo(1,1,1,new Casilla(0,0,1)));
+        oleada.add(new Enemigo(3,1,1,new Casilla(0,0,1)));
 //        oleada.add(new Enemigo(1,1,1));
 //        oleada.add(new Enemigo(1,1,1));
                       
