@@ -10,6 +10,7 @@ public class Enemigo {
     private int valor;
     private Casilla casilla;
     
+    
     @Override
     public String toString() {
         return ":";

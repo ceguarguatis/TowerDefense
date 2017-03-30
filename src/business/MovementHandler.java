@@ -2,17 +2,26 @@ package business;
 
 import data.*;
 
-
 public class MovementHandler {
-    public static void ponerTorre(int row, int col,Tablero tablero){
-        Casilla cuadro = new Casilla(row,col,1,2);
+
+    public static void ponerTorre(int row, int col, Tablero tablero) {
+        Casilla cuadro = new Casilla(row, col, 1, 2);
         tablero.updateSquare(cuadro);
-    } 
-  
-    public static void moverOleada(Tablero tablero, int count, int numbCasilla) {
-        tablero.getOleada().get(count).setCasilla(tablero.getCamino().get(numbCasilla));
-        
     }
+
+    public static void ponerCasilla(Tablero tablero, int enemigo, int numbCasilla) {
+        tablero.getOleada().get(enemigo).setCasilla(tablero.getCamino().get(numbCasilla));
+
+    }
+
+    public static void updateTablero(Tablero board, int j) {
+        for (int i = 0; i < board.getCamino().size(); i++) {
+            if (board.getCamino().get(i) != board.getOleada().get(j).getCasilla()) {
+                board.updateSquare(new Casilla(board.getCamino().get(i).getRow(), board.getCamino().get(i).getCol(), 1, 3));
+            }
+        }
+    }
+    
 
 //gh
 //    public static boolean isValid(Tablero board, int square) {
@@ -81,4 +90,5 @@ public class MovementHandler {
 //
 //        return playerWon;
 //    }
+    
 }

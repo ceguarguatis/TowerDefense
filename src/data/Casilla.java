@@ -21,7 +21,11 @@ public class Casilla {
     @Override
     public String toString() {
         return " . ";
-    }    
+    }  
+    
+    public String toString(char j) {
+        return " . "+row+col;
+    } 
     
     public String toString(int a) {
         return "+++";
