@@ -38,8 +38,17 @@ public class Torre {
         this.casilla = casilla;
         rango =new ArrayList<Casilla>();
         for (int i = 0; i < (4 * alcance) * (alcance + 1); i++) {
-            Casilla casiia = new Casilla(0,0,0,0);
-            this.rango.add(casiia);
+            if(alcance==1){
+                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()-1,1));
+                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol(),1));
+                this.rango.add(new Casilla(casilla.getRow()-1,casilla.getCol()+1,1));
+                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()-1,1));
+                this.rango.add(new Casilla(casilla.getRow(),casilla.getCol()+1,1));
+                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()-1,1));
+                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol(),1));
+                this.rango.add(new Casilla(casilla.getRow()+1,casilla.getCol()+1,1));
+            }
+            
         }
     }
 
