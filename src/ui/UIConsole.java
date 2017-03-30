@@ -12,17 +12,20 @@ public class UIConsole {
 
     public static void menuInicio() {
         System.out.println("MENU DE INICIO");
-        System.out.println("bienvenido que quiere hacer?");
-        System.out.println("1.empezar juego");
-        System.out.println("2. informacion");
-        System.out.println("3. salir");
+        System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+        System.out.println("Bienvenido a tower defense, seleccione alguna opciòn ");
+        System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+        System.out.println("1.Empezar juego");
+        System.out.println("2. Informacion");
+        System.out.println("3. Salir");
+        System.out.println("_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.");
     }
 
     public static void menuJuego() {
-        System.out.println(" que quiere hacer?");
-        System.out.println("1.poner torre");
-        System.out.println("2. continuar");
-        System.out.println("3. salir");
+        System.out.println(" Seleccione una opciòn");
+        System.out.println("1.Poner torre");
+        System.out.println("2. Continuar(empezar horda)");
+        System.out.println("3. Salir");
     }
 
     public static int leerOpcion() {
@@ -36,13 +39,14 @@ public class UIConsole {
 
     public static void imprimirInformacion() {
         System.out.println();
-        System.out.println("#########################################################################");
-        System.out.printf("%73s\n", "bienvenido sea jugador, le presento le nuevo juego");
-        System.out.printf("%73s\n", "en fase de desarrollo, desarrollado por");
-        System.out.printf("%73s\n", "nosotros, sus desarrolladores favoritos; por el momento");
-        System.out.printf("%73s\n", "solo podra visualizar un tablero, el cual muestra por donde va");
-        System.out.printf("%73s\n", "nuestro camino");
-        System.out.println("#########################################################################");
+        System.out.println("INFORMACION");
+        System.out.println("|_-|-_|-|_-|-_||_-|-_|-|_-|-_||_-|-_|-|_-|-_||_-|-_|-|_-|-_||_-|-_|-|_-|-_||_-");
+        System.out.printf("%73s\n", "Bienvenido sea jugador, esperamos que este comodo para poder apreciar el");
+        System.out.printf("%73s\n", " mejor juego  tipo  tower  defense en   fase de   desarrollo, hecho por sus");
+        System.out.printf("%73s\n", "programadores  favoritos  ,por  el momento podra disfrutar del tablero,");
+        System.out.printf("%73s\n", "el  primer  tipo  de  edificio, y  la  primera  clase de  enemigos ,");
+        System.out.printf("%73s\n", "esperamos que sea de  su gusto");
+        System.out.println("|_-|-_|-|_-|-_||_-|-_|-|_-|-_||_-|-_|-|_-|-_||_-|-_|-|_-|-_||_-|-_|-|_-|-_||_-");
         System.out.println();
     }
 
