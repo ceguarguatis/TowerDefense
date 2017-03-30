@@ -36,6 +36,7 @@ public class Torre {
         this.velocidad = velocidad;
         this.precio = precio;
         this.casilla = casilla;
+        rango =new ArrayList<Casilla>();
         for (int i = 0; i < (4 * alcance) * (alcance + 1); i++) {
             Casilla casiia = new Casilla(0,0,0,0);
             this.rango.add(casiia);
